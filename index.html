@@ -524,7 +524,29 @@ main>section:nth-child(n+5):nth-child(4n+4){background:#F5F2FF}
 .sh .eyebrow{color:var(--pi)}
 
 /* ---------- HERO: papildomi švytėjimai ---------- */
-.hero{background:radial-gradient(760px 340px at 88% -5%,rgba(125,102,240,.36),transparent 62%),radial-gradient(640px 320px at 4% 108%,rgba(64,132,255,.30),transparent 62%),linear-gradient(135deg,#121944 0%,#1C2670 58%,#2D2A86 100%)}
+/* ---------- HERO: foninė nuotrauka + tamsus navy/indigo overlay ----------
+   Nuotrauka: images/notebooklm-hero.webp (šalia index.html). Jei failo nėra, lieka tamsiai mėlynas fonas.
+   Nuotraukos „židinį“ galima pakeisti kintamuoju --hero-photo-pos. */
+.hero{
+  --hero-photo-pos:70% 50%;
+  background-color:#131A4A;
+  background:
+    radial-gradient(760px 340px at 88% -5%,rgba(125,102,240,.22),transparent 62%),
+    radial-gradient(640px 320px at 4% 108%,rgba(64,132,255,.18),transparent 62%),
+    linear-gradient(90deg,rgba(15,28,75,.96) 0%,rgba(24,39,110,.88) 48%,rgba(42,46,130,.68) 100%),
+    url('images/notebooklm-hero.webp') var(--hero-photo-pos)/cover no-repeat,
+    linear-gradient(135deg,#121944 0%,#1C2670 58%,#2D2A86 100%);
+}
+.hero h1,.hero .hsub0,.hero .hsub{text-shadow:0 1px 20px rgba(8,12,50,.35)}
+.hv-src,.hv-o{background:rgba(14,22,74,.42);border-color:rgba(255,255,255,.26);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+@media (max-width:1100px){
+  .hero{background:
+    radial-gradient(760px 340px at 88% -5%,rgba(125,102,240,.22),transparent 62%),
+    radial-gradient(640px 320px at 4% 108%,rgba(64,132,255,.18),transparent 62%),
+    linear-gradient(90deg,rgba(15,28,75,.96) 0%,rgba(24,39,110,.90) 60%,rgba(42,46,130,.80) 100%),
+    url('images/notebooklm-hero.webp') var(--hero-photo-pos)/cover no-repeat,
+    linear-gradient(135deg,#121944 0%,#1C2670 58%,#2D2A86 100%)}
+}
 .hero::after{-webkit-mask-image:radial-gradient(ellipse at 68% 30%,#000 8%,transparent 78%);mask-image:radial-gradient(ellipse at 68% 30%,#000 8%,transparent 78%)}
 .hv-o .hi{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--p);color:var(--pi)}
 .hv-o svg{color:var(--pi)}
@@ -647,7 +669,11 @@ details.ac[open]>.in{animation:fadeup .34s ease}
   .wf .outs{grid-template-columns:repeat(2,1fr)}
   .frm{grid-template-columns:repeat(2,1fr)}
   .sec{padding-top:46px}
-  .hero{padding-top:30px;padding-bottom:36px}
+  .hero{padding-top:30px;padding-bottom:36px;--hero-photo-pos:74% 50%;background:
+    radial-gradient(520px 260px at 92% -4%,rgba(125,102,240,.22),transparent 62%),
+    linear-gradient(180deg,rgba(15,28,75,.95) 0%,rgba(24,39,110,.92) 55%,rgba(42,46,130,.86) 100%),
+    url('images/notebooklm-hero.webp') var(--hero-photo-pos)/cover no-repeat,
+    linear-gradient(135deg,#121944 0%,#1C2670 58%,#2D2A86 100%)}
   .hv-out{grid-template-columns:repeat(2,1fr)}
   .oh{flex-direction:column;align-items:stretch}
 }
